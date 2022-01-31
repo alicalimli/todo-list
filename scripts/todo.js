@@ -10,7 +10,6 @@ todoList = document.querySelector(".todo-list");
 todoListParent = document.querySelector(".todo-lists");
 todoAddBtn = document.querySelector(".todo-add");
 todoInput = document.querySelector(".todo-input");
-
 todoMax = todoButton.length;
 
 // List template
