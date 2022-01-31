@@ -60,8 +60,6 @@ body {
 
 .todo-list {
   text-align: left;
-  font-size: 1.1rem;
-  font-weight: 500;
   list-style: none;
   padding-left: 2rem;
   border-left: 3px solid #e03131;
@@ -69,4 +67,12 @@ body {
 
 .todo-list.active {
   border-left: 3px solid #37b24d;
+}
+
+.todo-list-button {
+  border: none;
+  cursor: pointer;
+  background: none;
+  font-size: 1.1rem;
+  font-weight: 500;
 }
