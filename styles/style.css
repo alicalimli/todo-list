@@ -82,10 +82,6 @@ body {
 
 /* Adds an animation when the list is being clicked */
 
-.todo-list:active {
-  transform: scale(0.95);
-}
-
 /* The border that is being animated when list button is being clicked */
 
 .list-border {
@@ -109,6 +105,10 @@ body {
   font-size: 1.5rem;
   font-weight: 500;
   position: relative;
+}
+
+.todo-list-button:active {
+  transform: scale(0.95);
 }
 
 .todo-list-button::after {
