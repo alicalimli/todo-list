@@ -106,6 +106,24 @@ body {
   background: none;
   font-size: 1.5rem;
   font-weight: 500;
+  position: relative;
+}
+
+.todo-list-button::after {
+  content: " ";
+  background-color: #e03131;
+  height: 2px;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transition: all 0.3s ease;
+  transform: translate(0, -50%);
+}
+
+.todo-list-button.active-btn::after {
+  height: 2px;
+  width: 0%;
 }
 
 /* Adds animation in button hover */
