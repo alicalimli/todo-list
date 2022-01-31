@@ -23,6 +23,7 @@ body {
 }
 
 .todo-container {
+  overflow: hidden;
   width: 25rem;
   height: 30rem;
   padding: 1rem 2rem;
@@ -76,8 +77,17 @@ body {
   list-style: none;
   color: #e03131;
   display: flex;
+  transform: scale(0);
+  opacity: 0;
   align-items: center;
   justify-content: left;
+}
+
+/* Shows the list */
+
+.todo-list.show {
+  opacity: 100;
+  transform: scale(1);
 }
 
 /* Adds an animation when the list is being clicked */

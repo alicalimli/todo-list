@@ -12,10 +12,16 @@ todoAddBtn = document.querySelector(".todo-add");
 todoInput = document.querySelector(".todo-input");
 todoMax = todoButton.length;
 
+let listsCount;
+
 // List template
 
 function createList() {
   if (todoInput.value) {
+    // Adds 1 count to listCount every time a new Todo list is created
+
+    listsCount++;
+
     // Creates a list element
 
     const list = document.createElement("li");
@@ -62,6 +68,10 @@ function createList() {
     // The unordered list which groups everything that the user types
 
     todoListParent.appendChild(list);
+
+    setTimeout(() => {
+      list.classList.add("show");
+    }, 10);
   }
 }
 
