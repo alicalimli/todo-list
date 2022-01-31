@@ -138,6 +138,25 @@ body {
   width: 0%;
 }
 
+.todo-icon {
+  color: black;
+  font-size: 1.2rem;
+}
+
+.list-icon-btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.trash-button {
+  margin: 0 1rem 0 auto;
+}
+
+.trash-icon:hover {
+  color: #e03131;
+}
+
 /* Adds animation in button hover */
 
 .todo-list-button.active-btn:hover {

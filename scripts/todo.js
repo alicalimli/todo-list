@@ -10,18 +10,17 @@ todoList = document.querySelector(".todo-list");
 todoListParent = document.querySelector(".todo-lists");
 todoAddBtn = document.querySelector(".todo-add");
 todoInput = document.querySelector(".todo-input");
-todoMax = todoButton.length;
+arrowBtn = document.querySelector(".arrow-button");
 
-let listsCount;
+// The todo's array
+
+let toDoArray = [];
 
 // List template
 
 function createList() {
   if (todoInput.value) {
-    // Adds 1 count to listCount every time a new Todo list is created
-
-    listsCount++;
-
+    let currentValue = todoInput.value;
     // Creates a list element
 
     const list = document.createElement("li");
@@ -45,6 +44,27 @@ function createList() {
     listButton.classList.add("active-btn");
     listButton.textContent = "eee";
 
+    //
+
+    const trashButton = document.createElement("button");
+    trashButton.classList.add("trash-button");
+    trashButton.classList.add("list-icon-btn");
+
+    const trashIcon = document.createElement("ion-icon");
+    trashIcon.classList.add("todo-icon");
+    trashIcon.classList.add("trash-icon");
+    trashIcon.name = "trash-outline";
+
+    trashButton.appendChild(trashIcon);
+
+    trashButton.addEventListener("click", function () {
+      setTimeout(() => {
+        list.remove();
+      }, 300);
+
+      list.classList.toggle("show");
+    });
+
     // Changes the textcontent of the ListButton to
     // What the usertyped in the form or in the input
 
@@ -63,6 +83,7 @@ function createList() {
 
     list.appendChild(listBorder);
     list.appendChild(listButton);
+    list.appendChild(trashButton);
 
     // Puts the list element inside the toDoList Parent
     // The unordered list which groups everything that the user types
@@ -70,7 +91,7 @@ function createList() {
     todoListParent.appendChild(list);
 
     setTimeout(() => {
-      list.classList.add("show");
+      list.classList.toggle("show");
     }, 10);
   }
 }
