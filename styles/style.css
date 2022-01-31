@@ -1,3 +1,5 @@
+/* Global reset to have full control of every elements margin and padding */
+
 * {
   margin: 0;
   padding: 0;
@@ -6,10 +8,14 @@
   transition: all 0.4s;
 }
 
+/* Body */
+
 body {
   color: #333;
   font-family: sans-serif;
 }
+
+/* Centers the texts in the todo container */
 
 .todo-main {
   margin-top: 5rem;
@@ -29,12 +35,16 @@ body {
   margin-bottom: 1rem;
 }
 
+/* Todo form */
+
 .todo-form {
   display: flex;
   justify-content: center;
   gap: 0.5rem;
   margin-bottom: 1.5rem;
 }
+
+/* Todo's add button and the input*/
 
 .todo-input,
 .todo-add {
@@ -51,6 +61,8 @@ body {
   cursor: pointer;
 }
 
+/* Todo lists */
+
 .todo-lists {
   display: flex;
   flex-direction: column;
@@ -66,9 +78,13 @@ body {
   justify-content: left;
 }
 
+/* Adds an animation when the list is being clicked */
+
 .todo-list:active {
   transform: scale(0.95);
 }
+
+/* The border that is being animated when list button is being clicked */
 
 .list-border {
   margin-right: 2rem;
@@ -82,6 +98,8 @@ body {
   background-color: #37b24d;
 }
 
+/* Todo list button */
+
 .todo-list-button {
   border: none;
   cursor: pointer;
@@ -89,6 +107,8 @@ body {
   font-size: 1.5rem;
   font-weight: 500;
 }
+
+/* Adds animation in button hover */
 
 .todo-list-button.active-btn:hover {
   color: #37b24d;
