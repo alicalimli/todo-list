@@ -2,6 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  transition: all 0.4s;
 }
 
 body {
@@ -21,9 +23,6 @@ body {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   border-radius: 14px;
   margin: auto;
-}
-
-.todo-header {
 }
 
 .todo-title {
@@ -61,18 +60,32 @@ body {
 .todo-list {
   text-align: left;
   list-style: none;
-  padding-left: 2rem;
-  border-left: 3px solid #e03131;
+  color: #e03131;
+  display: flex;
+  align-items: center;
+  justify-content: left;
 }
 
-.todo-list.active {
-  border-left: 3px solid #37b24d;
+.list-border {
+  margin-right: 2rem;
+  height: 100%;
+  width: 3px;
+  background-color: #e03131;
+}
+
+.list-border.active {
+  transform: rotate(180deg);
+  background-color: #37b24d;
 }
 
 .todo-list-button {
   border: none;
   cursor: pointer;
   background: none;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   font-weight: 500;
+}
+
+.todo-list-button:hover {
+  transform: translateX(20%);
 }
