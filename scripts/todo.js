@@ -8,5 +8,6 @@ for (let i = 0; i < todoButton.length; i++) {
   todoButton[i].addEventListener("click", function () {
     console.log("shoot");
     todoBorder[i].classList.toggle("active");
+    todoButton[i].classList.toggle("active-btn");
   });
 }

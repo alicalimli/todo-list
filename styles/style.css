@@ -66,6 +66,10 @@ body {
   justify-content: left;
 }
 
+.todo-list:active {
+  transform: scale(0.95);
+}
+
 .list-border {
   margin-right: 2rem;
   height: 100%;
@@ -86,6 +90,9 @@ body {
   font-weight: 500;
 }
 
+.todo-list-button.active-btn:hover {
+  color: #37b24d;
+}
 .todo-list-button:hover {
-  transform: translateX(20%);
+  color: #e03131;
 }
