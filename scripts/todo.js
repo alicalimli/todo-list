@@ -83,7 +83,3 @@ const init = function () {
 };
 
 init();
-
-// Creates an click event listener for the button
-
-todoAddBtn.addEventListener("click", createList);

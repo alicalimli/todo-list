@@ -10,6 +10,7 @@
     <!-- Fonts -->
 
     <!-- Links -->
+
     <link rel="stylesheet" href="/styles/style.css" />
 
     <!-- Title -->
@@ -19,6 +20,7 @@
   <body>
     <main class="todo-main">
       <!-- Todo's Container -->
+
       <div class="todo-container">
         <!-- Todo's header this contains the title -->
 
@@ -27,11 +29,12 @@
         </header>
 
         <!-- Todo's form - user will type here -->
+
         <div class="form-container">
           <form onsubmit="return createList();" action="#" class="todo-form">
             <input class="todo-input" type="text" required />
+            <button class="todo-add">add</button>
           </form>
-          <button class="todo-add">add</button>
         </div>
 
         <!-- Todo's lists everytime user adds a thing to do it would be created here -->
@@ -39,10 +42,14 @@
         <ul class="todo-lists">
           <li class="todo-list">
             <!-- Animated border in the left side -->
+
             <div class="list-border active">&nbsp;</div>
+
             <!-- The list button-->
+
             <button class="todo-list-button active-btn">Go shopping</button>
           </li>
+
           <li class="todo-list">
             <div class="list-border">&nbsp;</div>
             <button class="todo-list-button">Take out the trash</button>
