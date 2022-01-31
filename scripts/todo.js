@@ -16,52 +16,54 @@ todoMax = todoButton.length;
 // List template
 
 function createList() {
-  // Creates a list element
+  if (todoInput.value) {
+    // Creates a list element
 
-  const list = document.createElement("li");
-  list.classList.add("todo-list");
+    const list = document.createElement("li");
+    list.classList.add("todo-list");
 
-  // Creates the List Borders the one that we are
-  // animating when button is clicked
+    // Creates the List Borders the one that we are
+    // animating when button is clicked
 
-  const listBorder = document.createElement("div");
-  listBorder.classList.add("list-border");
-  listBorder.classList.add("active");
+    const listBorder = document.createElement("div");
+    listBorder.classList.add("list-border");
+    listBorder.classList.add("active");
 
-  // This creates an empty space in the listborder like &nbsp; in html
+    // This creates an empty space in the listborder like &nbsp; in html
 
-  listBorder.appendChild(document.createTextNode("\u00A0"));
+    listBorder.appendChild(document.createTextNode("\u00A0"));
 
-  // Creates the list the the user typed
+    // Creates the list the the user typed
 
-  const listButton = document.createElement("button");
-  listButton.classList.add("todo-list-button");
-  listButton.classList.add("active-btn");
-  listButton.textContent = "eee";
+    const listButton = document.createElement("button");
+    listButton.classList.add("todo-list-button");
+    listButton.classList.add("active-btn");
+    listButton.textContent = "eee";
 
-  // Changes the textcontent of the ListButton to
-  // What the usertyped in the form or in the input
+    // Changes the textcontent of the ListButton to
+    // What the usertyped in the form or in the input
 
-  listButton.textContent = todoInput.value;
+    listButton.textContent = todoInput.value;
 
-  // Adds an event listener on the listButton
-  // or on the list that the user type
+    // Adds an event listener on the listButton
+    // or on the list that the user type
 
-  listButton.addEventListener("click", function () {
-    listButton.classList.toggle("active-btn");
-    listBorder.classList.toggle("active");
-  });
+    listButton.addEventListener("click", function () {
+      listButton.classList.toggle("active-btn");
+      listBorder.classList.toggle("active");
+    });
 
-  // Puts the listBorder and listButton
-  // inside the Parent element which is the list
+    // Puts the listBorder and listButton
+    // inside the Parent element which is the list
 
-  list.appendChild(listBorder);
-  list.appendChild(listButton);
+    list.appendChild(listBorder);
+    list.appendChild(listButton);
 
-  // Puts the list element inside the toDoList Parent
-  // The unordered list which groups everything that the user types
+    // Puts the list element inside the toDoList Parent
+    // The unordered list which groups everything that the user types
 
-  todoListParent.appendChild(list);
+    todoListParent.appendChild(list);
+  }
 }
 
 // Toggler function
