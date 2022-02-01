@@ -125,6 +125,8 @@ body {
   background-color: transparent;
   border-bottom: 1px solid black;
   border: none;
+  font-family: "Rubik", sans-serif;
+  color: #333;
   font-size: 1.2rem;
   font-weight: 500;
   padding: 0.5rem 1rem;
@@ -157,6 +159,7 @@ body {
 .todo-add,
 .todo-cancel {
   background-color: #1971c2;
+  font-size: 1rem;
   border-radius: 100px;
   color: white;
   font-weight: 600;
@@ -213,6 +216,8 @@ body {
 .todo-list-button {
   font-size: 1.2rem;
   font-weight: 500;
+  font-family: "Rubik", sans-serif;
+  color: #333;
   text-transform: lowercase;
   position: relative;
 }
