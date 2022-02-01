@@ -114,26 +114,10 @@ function createList() {
   }
 }
 
-// Toggler function
-
-// Loop to add an event listener to each classes that is selected above
-
-const init = function () {
-  for (let i = 0; i < todoButton.length; i++) {
-    // Adds an Event listener for the list button
-
-    todoButton[i].addEventListener("click", function () {
-      // Toggles the class when the button is clicked
-
-      todoBorder[i].classList.toggle("active");
-      todoButton[i].classList.toggle("active-btn");
-    });
-  }
-};
-
 // Toggles the pop up when user wants to add a todo list
 
 const togglePopUp = function () {
+  // Checks if the overlay is hidden
   if (!overlayShow) {
     overlayShow = true;
     Overlay.style.display = "block";
@@ -141,45 +125,53 @@ const togglePopUp = function () {
     overlayShow = false;
     Overlay.style.display = "none";
   }
+
+  // Toggles the form to show or not
+
   formContainer.classList.toggle("show-form");
 
   setTimeout(() => {
     Overlay.classList.toggle("show-overlay");
   }, 100);
 
-  todoInput.value = "";
+  // Needs to set timeout here because without it the focus function wouldnt work
+
   setTimeout(() => {
     todoInput.focus();
 
     todoInputUnderline.classList.toggle("show-underline");
   }, 100);
+
+  // Resets the input value to none
+
+  todoInput.value = "";
 };
 
-init();
-
-// Event Listeners
-
-todoAddBtn.addEventListener("click", createList);
-plusIconBtn.addEventListener("click", togglePopUp);
-todoCancelBtn.addEventListener("click", togglePopUp);
-Overlay.addEventListener("click", togglePopUp);
+// Dark Mode Function
 
 const darkModeClicked = function () {
+  // Checks if darkmode is enabled or not
   if (darkMode) {
     darkMode = false;
-    console.log("shoot");
+
+    // Animates the icon
     darkLightBtn.style.transform = "scale(0.5) rotate(360deg)";
 
+    // Delays the second animation
     setTimeout(() => {
       darkLightIcon.name = "moon-outline";
       darkLightBtn.style.transform = "scale(1) rotate(0)";
     }, 200);
-  } else {
+  }
+
+  // if darkmode is false then this codeblock runs
+  else {
     darkMode = true;
 
-    console.log("shoot");
+    // Animates the icon
     darkLightBtn.style.transform = "scale(0.5) rotate(180deg)";
 
+    // Delays the second animation
     setTimeout(() => {
       darkLightIcon.name = "sunny-outline";
       darkLightBtn.style.transform = "scale(1) rotate(0)";
@@ -187,11 +179,13 @@ const darkModeClicked = function () {
   }
 };
 
-darkLightBtn.addEventListener("click", darkModeClicked);
+// Keypress function
 
-document.addEventListener("keydown", function (keyPressed) {
+const keyPressed = function (keyVal) {
+  // Removes the form when the user pressed escape
+
   if (
-    keyPressed.key === "Escape" &&
+    keyVal.key === "Escape" &&
     formContainer.classList.contains("show-form")
   ) {
     togglePopUp();
@@ -199,10 +193,23 @@ document.addEventListener("keydown", function (keyPressed) {
 
   // Creates the list when user pressed enter
   else if (
-    keyPressed.key === "Enter" &&
+    keyVal.key === "Enter" &&
     formContainer.classList.contains("show-form") &&
     todoInput.value
   ) {
+    // Creates list when the user pressed enter and theres a value in the input
+
     createList();
   }
-});
+};
+
+// Event Listeners
+
+darkLightBtn.addEventListener("click", darkModeClicked);
+document.addEventListener("keydown", keyPressed);
+
+todoAddBtn.addEventListener("click", createList);
+todoCancelBtn.addEventListener("click", togglePopUp);
+
+Overlay.addEventListener("click", togglePopUp);
+plusIconBtn.addEventListener("click", togglePopUp);
