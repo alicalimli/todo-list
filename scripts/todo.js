@@ -11,6 +11,10 @@ todoListParent = document.querySelector(".todo-lists");
 todoAddBtn = document.querySelector(".todo-add");
 todoInput = document.querySelector(".todo-input");
 arrowBtn = document.querySelector(".arrow-button");
+plusIconBtn = document.querySelector(".plus-icon-btn");
+formContainer = document.querySelector(".form-container");
+Overlay = document.querySelector(".todo-overlay");
+todoCancelBtn = document.querySelector(".todo-cancel");
 
 // The todo's array
 
@@ -42,9 +46,10 @@ function createList() {
     const listButton = document.createElement("button");
     listButton.classList.add("todo-list-button");
     listButton.classList.add("active-btn");
-    listButton.textContent = "eee";
 
     //
+
+    // Creates a trashbutton in the rightside of the todo list
 
     const trashButton = document.createElement("button");
     trashButton.classList.add("trash-button");
@@ -55,7 +60,11 @@ function createList() {
     trashIcon.classList.add("trash-icon");
     trashIcon.name = "trash-outline";
 
+    // puts the trashButton inside the trashIcon
+
     trashButton.appendChild(trashIcon);
+
+    // Adds an event listener to trashbutton
 
     trashButton.addEventListener("click", function () {
       setTimeout(() => {
@@ -90,6 +99,14 @@ function createList() {
 
     todoListParent.appendChild(list);
 
+    // Toggles the popup when user saves
+
+    togglePopUp();
+
+    // Removes the value of the input when user clicked save
+
+    todoInput.value = "";
+
     setTimeout(() => {
       list.classList.toggle("show");
     }, 10);
@@ -113,4 +130,20 @@ const init = function () {
   }
 };
 
+// Toggles the pop up when user wants to add a todo list
+
+const togglePopUp = function () {
+  document.getElementById("todo-input").focus();
+  document.getElementById("todo-input").select();
+  formContainer.classList.toggle("show-form");
+  Overlay.classList.toggle("show-overlay");
+};
+
 init();
+
+// Event Listeners
+
+todoAddBtn.addEventListener("click", createList);
+plusIconBtn.addEventListener("click", togglePopUp);
+todoCancelBtn.addEventListener("click", togglePopUp);
+Overlay.addEventListener("click", togglePopUp);

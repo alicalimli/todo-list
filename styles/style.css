@@ -12,7 +12,7 @@
 
 body {
   color: #333;
-  font-family: sans-serif;
+  font-family: "Rubik", sans-serif;
 }
 
 /* Centers the texts in the todo container */
@@ -24,19 +24,120 @@ body {
 
 .todo-container {
   overflow: hidden;
-  width: 25rem;
-  height: 30rem;
-  padding: 1rem 2rem;
+  width: 30rem;
+  height: 35rem;
+  padding: 2rem 3rem;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   border-radius: 14px;
   margin: auto;
 }
 
-.todo-title {
+.todo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: all 0.3s ease;
+  z-index: -3;
+}
+
+.todo-overlay.show-overlay {
+  opacity: 100;
+  z-index: 3;
+}
+
+.todo-header {
+  display: flex;
+  align-items: center;
   margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #ced4da;
+}
+
+.plus-icon-btn {
+  border: none;
+  margin-left: auto;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.plus-icon-btn:active {
+  transform: scale(0.8);
+}
+
+.plus-icon {
+  font-size: 1.6rem;
 }
 
 /* Todo form */
+
+.header-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-container {
+  background-color: white;
+  border-radius: 14px;
+  z-index: 5;
+  padding: 1rem 4rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition: all 0.3s ease;
+  transform: translate(-50%, -50%) scale(0.7);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.form-container.show-form {
+  transform: translate(-50%, -50%) scale(1);
+  visibility: visible;
+  opacity: 100;
+  pointer-events: auto;
+}
+
+.add-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.todo-input {
+  padding: 0.5rem 1rem;
+  border: none;
+  margin-bottom: 0.5rem;
+  background-color: transparent;
+  border-bottom: 1px solid black;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.todo-add,
+.todo-cancel {
+  border: none;
+  background-color: #1971c2;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+}
+
+.todo-add:hover,
+.todo-cancel:hover {
+  background-color: #1c7ed6;
+}
+
+.todo-add:active,
+.todo-cancel:active {
+  transform: scale(0.9);
+}
 
 .todo-form {
   display: flex;
@@ -46,21 +147,6 @@ body {
 }
 
 /* Todo's add button and the input*/
-
-.todo-input,
-.todo-add {
-  padding: 0.5rem 1rem;
-  border: none;
-  background-color: #e9ecef;
-  border-radius: 14px;
-  font-size: 1rem;
-  font-weight: 500;
-}
-
-.todo-add {
-  font-weight: 600;
-  cursor: pointer;
-}
 
 /* Todo lists */
 
@@ -112,7 +198,7 @@ body {
   border: none;
   cursor: pointer;
   background: none;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 500;
   position: relative;
 }

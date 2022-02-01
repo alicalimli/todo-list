@@ -9,6 +9,13 @@
 
     <!-- Fonts -->
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Links -->
 
     <link rel="stylesheet" href="/styles/style.css" />
@@ -22,19 +29,36 @@
       <!-- Todo's Container -->
 
       <div class="todo-container">
+        <div class="todo-overlay">&nbsp;</div>
         <!-- Todo's header this contains the title -->
 
         <header class="todo-header">
           <h1 class="todo-title">Things to do</h1>
+          <button for="#todo-input" class="plus-icon-btn">
+            <ion-icon name="add-outline" class="plus-icon"></ion-icon>
+          </button>
         </header>
 
         <!-- Todo's form - user will type here -->
 
         <div class="form-container">
+          <header class="form-header">
+            <h3 class="header-title">New Task</h3>
+          </header>
           <form onsubmit="return createList();" action="#" class="todo-form">
-            <input class="todo-input" type="text" required />
-            <button class="todo-add">add</button>
+            <input
+              class="todo-input"
+              id="todo-input"
+              type="text"
+              maxlength="30"
+              autocomplete="off"
+              required
+            />
           </form>
+          <div class="add-container">
+            <button class="todo-cancel">Cancel</button>
+            <button class="todo-add">&nbsp; Save &nbsp;</button>
+          </div>
         </div>
 
         <!-- Todo's lists everytime user adds a thing to do it would be created here -->
