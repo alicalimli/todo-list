@@ -25,6 +25,10 @@
     <title>ToDo List</title>
   </head>
   <body>
+    <button class="btn dark-light-btn">
+      <ion-icon name="moon-outline" class="dark-light-mode"></ion-icon>
+    </button>
+
     <main class="todo-main">
       <!-- Todo's Container -->
 
@@ -34,11 +38,8 @@
 
         <header class="todo-header">
           <h1 class="todo-title">Things to do</h1>
-          <button for="#todo-input" class="plus-icon-btn">
+          <button class="btn plus-icon-btn">
             <ion-icon name="add-outline" class="plus-icon"></ion-icon>
-          </button>
-          <button for="#todo-input" class="dark-light-btn">
-            <ion-icon name="moon-outline" class="dark-light-mode"></ion-icon>
           </button>
         </header>
 
@@ -61,8 +62,8 @@
           </div>
 
           <div class="add-container">
-            <button class="todo-cancel">Cancel</button>
-            <button class="todo-add">&nbsp; Save &nbsp;</button>
+            <button class="btn todo-cancel">Cancel</button>
+            <button class="btn todo-add">&nbsp; Save &nbsp;</button>
           </div>
         </div>
 

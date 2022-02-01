@@ -51,6 +51,7 @@ function createList() {
     const listButton = document.createElement("button");
     listButton.classList.add("todo-list-button");
     listButton.classList.add("active-btn");
+    listButton.classList.add("btn");
 
     //
 
@@ -59,6 +60,7 @@ function createList() {
     const trashButton = document.createElement("button");
     trashButton.classList.add("trash-button");
     trashButton.classList.add("list-icon-btn");
+    trashButton.classList.add("btn");
 
     const trashIcon = document.createElement("ion-icon");
     trashIcon.classList.add("todo-icon");
