@@ -15,6 +15,7 @@ plusIconBtn = document.querySelector(".plus-icon-btn");
 formContainer = document.querySelector(".form-container");
 Overlay = document.querySelector(".todo-overlay");
 todoCancelBtn = document.querySelector(".todo-cancel");
+todoInputUnderline = document.querySelector(".todo-input-underline");
 
 // The todo's array
 
@@ -134,6 +135,8 @@ const togglePopUp = function () {
   todoInput.value = "";
   setTimeout(() => {
     todoInput.focus();
+
+    todoInputUnderline.classList.toggle("show-underline");
   }, 100);
 };
 

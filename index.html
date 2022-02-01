@@ -45,14 +45,18 @@
           <header class="form-header">
             <h3 class="header-title">New Task</h3>
           </header>
-          <input
-            class="todo-input"
-            id="todo-input"
-            type="text"
-            maxlength="30"
-            autocomplete="off"
-            required
-          />
+          <div class="input-container">
+            <input
+              class="todo-input"
+              id="todo-input"
+              type="text"
+              maxlength="30"
+              autocomplete="off"
+              required
+            />
+            <div class="todo-input-underline">&nbsp;</div>
+          </div>
+
           <div class="add-container">
             <button class="todo-cancel">Cancel</button>
             <button class="todo-add">&nbsp; Save &nbsp;</button>

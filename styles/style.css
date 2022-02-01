@@ -27,7 +27,6 @@ body {
   width: 30rem;
   height: 35rem;
   padding: 2rem 3rem;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   border-radius: 14px;
   margin: auto;
 }
@@ -38,7 +37,6 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
   opacity: 0;
   background-color: rgba(0, 0, 0, 0.6);
   transition: all 0.3s ease;
@@ -108,14 +106,36 @@ body {
   gap: 2rem;
 }
 
+.input-container {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
 .todo-input {
   padding: 0.5rem 1rem;
   border: none;
-  margin-bottom: 1.5rem;
   background-color: transparent;
   border-bottom: 1px solid black;
   font-size: 1.2rem;
   font-weight: 500;
+}
+
+.todo-input-underline {
+  background-color: #1971c2;
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translate(-50%, 0) scaleX(0);
+}
+
+.todo-input:focus {
+  outline: none;
+}
+
+.todo-input-underline.show-underline {
+  transform: translate(-50%, 0) scaleX(1);
 }
 
 .todo-add,
@@ -194,6 +214,11 @@ body {
   font-size: 1.2rem;
   font-weight: 500;
   position: relative;
+  text-transform: lowercase;
+}
+
+.todo-list-button::first-letter {
+  text-transform: uppercase;
 }
 
 .todo-list-button:active {
