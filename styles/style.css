@@ -32,6 +32,7 @@ body {
 }
 
 .todo-overlay {
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -56,18 +57,31 @@ body {
   border-bottom: 2px solid #ced4da;
 }
 
-.plus-icon-btn {
+.plus-icon-btn,
+.dark-light-btn {
   border: none;
-  margin-left: auto;
   cursor: pointer;
   background-color: transparent;
 }
 
-.plus-icon-btn:active {
+.dark-light-btn {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.plus-icon-btn {
+  margin-left: auto;
+}
+
+.plus-icon-btn:active,
+.dark-light-btn:active {
   transform: scale(0.8);
 }
 
-.plus-icon {
+.plus-icon,
+.dark-light-mode {
   font-size: 1.6rem;
 }
 
@@ -211,6 +225,7 @@ body {
   border: none;
   cursor: pointer;
   background: none;
+  color: #333;
   font-size: 1.2rem;
   font-weight: 500;
   position: relative;

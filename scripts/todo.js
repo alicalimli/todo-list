@@ -16,6 +16,10 @@ formContainer = document.querySelector(".form-container");
 Overlay = document.querySelector(".todo-overlay");
 todoCancelBtn = document.querySelector(".todo-cancel");
 todoInputUnderline = document.querySelector(".todo-input-underline");
+darkLightBtn = document.querySelector(".dark-light-btn");
+darkLightIcon = document.querySelector(".dark-light-mode");
+let darkMode = false;
+let overlayShow = false;
 
 // The todo's array
 
@@ -130,8 +134,19 @@ const init = function () {
 // Toggles the pop up when user wants to add a todo list
 
 const togglePopUp = function () {
+  if (!overlayShow) {
+    overlayShow = true;
+    Overlay.style.display = "block";
+  } else {
+    overlayShow = false;
+    Overlay.style.display = "none";
+  }
   formContainer.classList.toggle("show-form");
-  Overlay.classList.toggle("show-overlay");
+
+  setTimeout(() => {
+    Overlay.classList.toggle("show-overlay");
+  }, 100);
+
   todoInput.value = "";
   setTimeout(() => {
     todoInput.focus();
@@ -148,6 +163,31 @@ todoAddBtn.addEventListener("click", createList);
 plusIconBtn.addEventListener("click", togglePopUp);
 todoCancelBtn.addEventListener("click", togglePopUp);
 Overlay.addEventListener("click", togglePopUp);
+
+const darkModeClicked = function () {
+  if (darkMode) {
+    darkMode = false;
+    console.log("shoot");
+    darkLightBtn.style.transform = "scale(0.5) rotate(360deg)";
+
+    setTimeout(() => {
+      darkLightIcon.name = "moon-outline";
+      darkLightBtn.style.transform = "scale(1) rotate(0)";
+    }, 200);
+  } else {
+    darkMode = true;
+
+    console.log("shoot");
+    darkLightBtn.style.transform = "scale(0.5) rotate(180deg)";
+
+    setTimeout(() => {
+      darkLightIcon.name = "sunny-outline";
+      darkLightBtn.style.transform = "scale(1) rotate(0)";
+    }, 200);
+  }
+};
+
+darkLightBtn.addEventListener("click", darkModeClicked);
 
 document.addEventListener("keydown", function (keyPressed) {
   if (
