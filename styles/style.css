@@ -111,7 +111,7 @@ body {
 .todo-input {
   padding: 0.5rem 1rem;
   border: none;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
   background-color: transparent;
   border-bottom: 1px solid black;
   font-size: 1.2rem;
@@ -137,13 +137,6 @@ body {
 .todo-add:active,
 .todo-cancel:active {
   transform: scale(0.9);
-}
-
-.todo-form {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
 }
 
 /* Todo's add button and the input*/

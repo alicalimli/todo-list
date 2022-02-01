@@ -103,10 +103,6 @@ function createList() {
 
     togglePopUp();
 
-    // Removes the value of the input when user clicked save
-
-    todoInput.value = "";
-
     setTimeout(() => {
       list.classList.toggle("show");
     }, 10);
@@ -133,10 +129,12 @@ const init = function () {
 // Toggles the pop up when user wants to add a todo list
 
 const togglePopUp = function () {
-  document.getElementById("todo-input").focus();
-  document.getElementById("todo-input").select();
   formContainer.classList.toggle("show-form");
   Overlay.classList.toggle("show-overlay");
+  todoInput.value = "";
+  setTimeout(() => {
+    todoInput.focus();
+  }, 100);
 };
 
 init();
@@ -147,3 +145,21 @@ todoAddBtn.addEventListener("click", createList);
 plusIconBtn.addEventListener("click", togglePopUp);
 todoCancelBtn.addEventListener("click", togglePopUp);
 Overlay.addEventListener("click", togglePopUp);
+
+document.addEventListener("keydown", function (keyPressed) {
+  if (
+    keyPressed.key === "Escape" &&
+    formContainer.classList.contains("show-form")
+  ) {
+    togglePopUp();
+  }
+
+  // Creates the list when user pressed enter
+  else if (
+    keyPressed.key === "Enter" &&
+    formContainer.classList.contains("show-form") &&
+    todoInput.value
+  ) {
+    createList();
+  }
+});
