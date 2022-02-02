@@ -269,13 +269,23 @@ body {
   font-size: 1.2rem;
   font-weight: 500;
   font-family: "Rubik", sans-serif;
-  color: var(--main-color);
+  color: #555;
   text-transform: lowercase;
   position: relative;
 }
 
+.todo-list-button.active-btn {
+  color: var(--main-color);
+}
+
 .todo-list-button::first-letter {
   text-transform: uppercase;
+}
+
+/* Adds animation in button hover */
+
+.todo-list-button.active-btn:hover {
+  color: var(--green-color);
 }
 
 .todo-list-button:active {
@@ -308,14 +318,5 @@ body {
 }
 
 .trash-icon:hover {
-  color: var(--red-color);
-}
-
-/* Adds animation in button hover */
-
-.todo-list-button.active-btn:hover {
-  color: var(--green-color);
-}
-.todo-list-button:hover {
   color: var(--red-color);
 }
