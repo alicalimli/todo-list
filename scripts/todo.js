@@ -137,19 +137,17 @@ const togglePopUp = function () {
 
   setTimeout(() => {
     overlay.classList.toggle("show-overlay");
-  }, 100);
+  }, 50);
 
   // Needs to set timeout here because without it the focus function wouldnt work
 
-  setTimeout(() => {
-    // Puts the focus in the user input
+  // Puts the focus in the user input
 
-    todoInput.focus();
+  todoInput.focus();
 
-    // Input unerline transition
+  // Input unerline transition
 
-    todoInputUnderline.classList.toggle("show-underline");
-  }, 100);
+  todoInputUnderline.classList.toggle("show-underline");
 
   // Resets the input value to none
 
