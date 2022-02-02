@@ -36,6 +36,8 @@ function createList() {
     // Counts how many task are being added by the user
     taskCount++;
 
+    console.log(taskCount);
+
     // Adds scroll bar when task is equals to 10
 
     taskCount >= 10
@@ -84,6 +86,7 @@ function createList() {
 
       setTimeout(() => {
         list.remove();
+        taskCount--;
       }, 300);
 
       // Transition when the user deletes the task
@@ -161,11 +164,9 @@ const togglePopUp = function () {
     setTimeout(() => {
       formActive = true;
       // Puts the focus in the user input
-      console.log("focus");
       todoInput.focus();
     }, 100);
   } else {
-    console.log("Close");
     formActive = false;
   }
 
