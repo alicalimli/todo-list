@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  transition: all 0.35s;
+  transition: all 0s;
 }
 
 /* Body */
@@ -93,7 +93,7 @@ body {
 
 .todo-container {
   border-radius: 14px;
-  width: 30rem;
+  width: 480px;
   height: 35rem;
   padding: 2rem 3rem;
   overflow: hidden;
@@ -341,4 +341,16 @@ body {
   text-align: center;
   color: #868e96;
   font-weight: 400;
+}
+
+/* Media queries */
+
+@media (max-width: 500px) {
+  html {
+    font-size: 80%;
+    height: 100vh;
+  }
+  .todo-container {
+    width: 100%;
+  }
 }
