@@ -133,8 +133,6 @@ function createList() {
 // Toggles the pop up when user wants to add a todo list
 
 const togglePopUp = function () {
-  formActive = true;
-
   // Checks if the overlay is hidden
 
   if (!overlayShow) {
@@ -161,12 +159,16 @@ const togglePopUp = function () {
 
   // Needs to set timeout here because without it the focus function wouldnt work
 
-  if (formActive) {
+  if (!formActive) {
     setTimeout(() => {
+      formActive = true;
       // Puts the focus in the user input
-      formActive = false;
+      console.log("focus");
       todoInput.focus();
     }, 100);
+  } else {
+    console.log("Close");
+    formActive = false;
   }
 
   // Resets the input value to none
