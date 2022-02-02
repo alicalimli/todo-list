@@ -4,28 +4,24 @@
 
 // Variables declarations
 
-todoButton = document.querySelectorAll(".todo-list-button");
-todoBorder = document.querySelectorAll(".list-border");
-todoList = document.querySelector(".todo-list");
-todoListParent = document.querySelector(".todo-lists");
-todoAddBtn = document.querySelector(".todo-add");
-todoInput = document.querySelector(".todo-input");
-arrowBtn = document.querySelector(".arrow-button");
-plusIconBtn = document.querySelector(".plus-icon-btn");
-formContainer = document.querySelector(".form-container");
-Overlay = document.querySelector(".todo-overlay");
-todoCancelBtn = document.querySelector(".todo-cancel");
-todoInputUnderline = document.querySelector(".todo-input-underline");
-darkLightBtn = document.querySelector(".dark-light-btn");
-darkLightIcon = document.querySelector(".dark-light-mode");
-darkModeTrans = document.querySelector(".dark-transition");
+const darkLightBtn = document.querySelector(".dark-light-btn");
+const darkLightIcon = document.querySelector(".dark-light-mode");
+const darkModeTrans = document.querySelector(".dark-transition");
+
+const todoAddBtn = document.querySelector(".todo-add");
+const todoCancelBtn = document.querySelector(".todo-cancel");
+const todoInput = document.querySelector(".todo-input");
+const todoList = document.querySelector(".todo-list");
+const todoListParent = document.querySelector(".todo-lists");
+const todoInputUnderline = document.querySelector(".todo-input-underline");
+
+const formContainer = document.querySelector(".form-container");
+const overlay = document.querySelector(".todo-overlay");
+const plusIconBtn = document.querySelector(".plus-icon-btn");
+// For dark mode
 
 let darkMode = false;
 let overlayShow = false;
-
-// The todo's array
-
-let toDoArray = [];
 
 // List template
 
@@ -124,10 +120,10 @@ const togglePopUp = function () {
   // Checks if the overlay is hidden
   if (!overlayShow) {
     overlayShow = true;
-    Overlay.style.display = "block";
+    overlay.style.display = "block";
   } else {
     overlayShow = false;
-    Overlay.style.display = "none";
+    overlay.style.display = "none";
   }
 
   // Toggles the form to show or not
@@ -135,7 +131,7 @@ const togglePopUp = function () {
   formContainer.classList.toggle("show-form");
 
   setTimeout(() => {
-    Overlay.classList.toggle("show-overlay");
+    overlay.classList.toggle("show-overlay");
   }, 100);
 
   // Needs to set timeout here because without it the focus function wouldnt work
@@ -227,5 +223,5 @@ document.addEventListener("keydown", keyPressed);
 todoAddBtn.addEventListener("click", createList);
 todoCancelBtn.addEventListener("click", togglePopUp);
 
-Overlay.addEventListener("click", togglePopUp);
+overlay.addEventListener("click", togglePopUp);
 plusIconBtn.addEventListener("click", togglePopUp);
