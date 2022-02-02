@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  transition: all 0s;
+  transition: all 0.3s;
 }
 
 /* Body */
@@ -12,6 +12,7 @@
 body {
   overflow: hidden;
   color: var(--main-color);
+  background-color: var(--main-bg-color);
   font-family: "Rubik", sans-serif;
 }
 
@@ -352,5 +353,8 @@ body {
   }
   .todo-container {
     width: 100%;
+  }
+  .dark-transition {
+    display: none;
   }
 }
