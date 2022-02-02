@@ -24,15 +24,21 @@
 
     <title>ToDo List</title>
   </head>
-  <body>
-    <button class="btn dark-light-btn">
-      <ion-icon
-        name="moon-outline"
-        class="dark-light-mode moon-icon"
-      ></ion-icon>
-    </button>
 
-    <div class="dark-transition">&nbsp;</div>
+  <body>
+    <header>
+      <button class="btn dark-light-btn">
+        <!-- Dark mode and light mode button -->
+        <ion-icon
+          name="moon-outline"
+          class="dark-light-mode moon-icon"
+        ></ion-icon>
+      </button>
+
+      <!-- Used to make a trasition when dark mode is being clicked -->
+
+      <div class="dark-transition">&nbsp;</div>
+    </header>
 
     <main class="todo-main">
       <!-- Todo's Container -->
@@ -43,17 +49,26 @@
 
         <header class="todo-header">
           <h1 class="todo-title">Things to do</h1>
+
+          <!-- Add/plus button and its icon -->
+
           <button class="btn plus-icon-btn">
             <ion-icon name="add-outline" class="plus-icon"></ion-icon>
           </button>
         </header>
 
-        <!-- Todo's form - user will type here -->
+        <!-- Todo's form this pops up when user clicks plus button-->
 
         <div class="form-container">
           <header class="form-header">
+            <!-- Forms title -->
+
             <h3 class="header-title">New Task</h3>
           </header>
+
+          <!-- Todo's text input - user will type the task here -->
+          <!-- Cant put the input inside the <form> because of forms action when user press enter the website restarts -->
+
           <div class="input-container">
             <input
               class="todo-input"
@@ -63,8 +78,13 @@
               autocomplete="off"
               required
             />
+
+            <!-- Used to make a transition when the focus the form pops up -->
+
             <div class="todo-input-underline">&nbsp;</div>
           </div>
+
+          <!-- Container for the 2 buttons cancel and save -->
 
           <div class="add-container">
             <button class="btn todo-cancel">Cancel</button>
@@ -72,7 +92,7 @@
           </div>
         </div>
 
-        <!-- Todo's lists everytime user adds a thing to do it would be created here -->
+        <!-- Todo's lists everytime user adds a task to do it would be created here -->
 
         <ul class="todo-lists"></ul>
       </div>
@@ -82,7 +102,7 @@
 
     <script src="/scripts/todo.js"></script>
 
-    <!-- Script ion icon -->
+    <!-- Ionicon's script -->
 
     <script
       type="module"
