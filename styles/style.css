@@ -67,25 +67,6 @@ body {
   color: #ffd43b;
 }
 
-.dark-transition {
-  background-color: #212529;
-  border-radius: 100px;
-  content: ".";
-  width: 2rem;
-  height: 2rem;
-  transform: translate(-50%, 0);
-  opacity: 0;
-  position: absolute;
-  top: 1rem;
-  left: 50%;
-  z-index: -1;
-}
-
-.dark-transition.show-transition {
-  opacity: 100;
-  transform: translate(-50%, 0) scale(100);
-}
-
 /* Todo Main */
 
 .todo-main {
@@ -353,8 +334,5 @@ body {
   }
   .todo-container {
     width: 100%;
-  }
-  .dark-transition {
-    display: none;
   }
 }

@@ -6,8 +6,6 @@
 
 const darkLightBtn = document.querySelector(".dark-light-btn");
 const darkLightIcon = document.querySelector(".dark-light-mode");
-const darkModeTrans = document.querySelector(".dark-transition");
-
 const todoAddBtn = document.querySelector(".todo-add");
 const todoCancelBtn = document.querySelector(".todo-cancel");
 const todoInput = document.querySelector(".todo-input");
@@ -192,10 +190,6 @@ const darkModeClicked = function () {
 
     document.body.classList.toggle("dark-mode-toggle");
 
-    // Dark Modes return to light mode transition
-
-    darkModeTrans.classList.toggle("show-transition");
-
     // Delays the transitions
 
     setTimeout(() => {
@@ -213,10 +207,6 @@ const darkModeClicked = function () {
     // Animates the icon
 
     darkLightBtn.style.transform = "translateX(-50%) scale(0.5) rotate(180deg)";
-
-    // Dark Modes transition
-
-    darkModeTrans.classList.toggle("show-transition");
 
     // Toggles the dark mode
 
