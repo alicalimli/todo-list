@@ -18,6 +18,7 @@ const todoInputUnderline = document.querySelector(".todo-input-underline");
 const formContainer = document.querySelector(".form-container");
 const overlay = document.querySelector(".todo-overlay");
 const plusIconBtn = document.querySelector(".plus-icon-btn");
+
 // For dark mode
 
 let darkMode = false;
@@ -28,6 +29,7 @@ let overlayShow = false;
 function createList() {
   if (todoInput.value) {
     let currentValue = todoInput.value;
+
     // Creates a list element
 
     const list = document.createElement("li");
@@ -37,8 +39,7 @@ function createList() {
     // animating when button is clicked
 
     const listBorder = document.createElement("div");
-    listBorder.classList.add("list-border");
-    listBorder.classList.add("active");
+    listBorder.classList.add("list-border", "active");
 
     // This creates an empty space in the listborder like &nbsp; in html
 
@@ -47,34 +48,33 @@ function createList() {
     // Creates the list the the user typed
 
     const listButton = document.createElement("button");
-    listButton.classList.add("todo-list-button");
-    listButton.classList.add("active-btn");
-    listButton.classList.add("btn");
-
-    //
+    listButton.classList.add("todo-list-button", "active-btn", "btn");
 
     // Creates a trashbutton in the rightside of the todo list
 
     const trashButton = document.createElement("button");
-    trashButton.classList.add("trash-button");
-    trashButton.classList.add("list-icon-btn");
-    trashButton.classList.add("btn");
+    trashButton.classList.add("trash-button", "list-icon-btn", "btn");
+
+    // Creates the trash icon inside the trash button
 
     const trashIcon = document.createElement("ion-icon");
-    trashIcon.classList.add("todo-icon");
-    trashIcon.classList.add("trash-icon");
+    trashIcon.classList.add("todo-icon", "trash-icon");
     trashIcon.name = "trash-outline";
 
-    // puts the trashButton inside the trashIcon
+    // puts the trashIcon inside the trashButton
 
     trashButton.appendChild(trashIcon);
 
     // Adds an event listener to trashbutton
 
     trashButton.addEventListener("click", function () {
+      // Delays the remove function to make the transition work
+
       setTimeout(() => {
         list.remove();
       }, 300);
+
+      // Transition when the user deletes the task
 
       list.classList.toggle("show");
     });
@@ -92,7 +92,7 @@ function createList() {
       listBorder.classList.toggle("active");
     });
 
-    // Puts the listBorder and listButton
+    // Puts the listBorder,listButton and trashButton
     // inside the Parent element which is the list
 
     list.appendChild(listBorder);
@@ -104,9 +104,11 @@ function createList() {
 
     todoListParent.appendChild(list);
 
-    // Toggles the popup when user saves
+    // Toggles the popup when user press save
 
     togglePopUp();
+
+    // Delays the transition a bit of the users task when the user saves
 
     setTimeout(() => {
       list.classList.toggle("show");
@@ -118,6 +120,7 @@ function createList() {
 
 const togglePopUp = function () {
   // Checks if the overlay is hidden
+
   if (!overlayShow) {
     overlayShow = true;
     overlay.style.display = "block";
@@ -130,6 +133,8 @@ const togglePopUp = function () {
 
   formContainer.classList.toggle("show-form");
 
+  // Toggles the overlay color in the back of the form
+
   setTimeout(() => {
     overlay.classList.toggle("show-overlay");
   }, 100);
@@ -137,7 +142,11 @@ const togglePopUp = function () {
   // Needs to set timeout here because without it the focus function wouldnt work
 
   setTimeout(() => {
+    // Puts the focus in the user input
+
     todoInput.focus();
+
+    // Input unerline transition
 
     todoInputUnderline.classList.toggle("show-underline");
   }, 100);
@@ -151,17 +160,24 @@ const togglePopUp = function () {
 
 const darkModeClicked = function () {
   // Checks if darkmode is enabled or not
+
   if (darkMode) {
     darkMode = false;
 
     // Animates the icon
+
     darkLightBtn.style.transform = "translateX(-50%) scale(0.5) rotate(360deg)";
 
-    darkModeTrans.classList.toggle("show-transition");
+    // Toggles the light mode
 
     document.body.classList.toggle("dark-mode-toggle");
 
-    // Delays the second animation
+    // Dark Modes return to light mode transition
+
+    darkModeTrans.classList.toggle("show-transition");
+
+    // Delays the transitions
+
     setTimeout(() => {
       darkLightIcon.name = "moon-outline";
       darkLightIcon.classList.add("moon-icon");
@@ -174,14 +190,20 @@ const darkModeClicked = function () {
   else {
     darkMode = true;
 
+    // Animates the icon
+
+    darkLightBtn.style.transform = "translateX(-50%) scale(0.5) rotate(180deg)";
+
+    // Dark Modes transition
+
     darkModeTrans.classList.toggle("show-transition");
+
+    // Toggles the dark mode
 
     document.body.classList.toggle("dark-mode-toggle");
 
-    // Animates the icon
-    darkLightBtn.style.transform = "translateX(-50%) scale(0.5) rotate(180deg)";
+    // Delays the transitions
 
-    // Delays the second animation
     setTimeout(() => {
       darkLightIcon.name = "sunny-outline";
       darkLightIcon.classList.remove("moon-icon");
