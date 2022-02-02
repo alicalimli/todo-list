@@ -10,14 +10,15 @@
 /* Body */
 
 body {
-  color: #333;
+  overflow: hidden;
+  color: var(--main-color);
   font-family: "Rubik", sans-serif;
 }
 
 /* Global Styles */
 
 .btn {
-  color: black;
+  color: var(--main-color);
   font-size: 1.2rem;
   border: none;
   cursor: pointer;
@@ -28,6 +29,24 @@ body {
   transform: scale(0.9);
 }
 
+/* For Dark Mode */
+
+:root {
+  --main-color: black;
+  --main-bg-color: white;
+  --accent-color: #1971c2;
+  --green-color: #37b24d;
+  --red-color: #e03131;
+}
+
+.dark-mode-toggle {
+  --main-color: white;
+  --main-bg-color: #212529;
+  --accent-color: #339af0;
+  --green-color: #51cf66;
+  --red-color: #fa5252;
+}
+
 /* Dark Mode Button */
 
 .dark-light-btn {
@@ -35,6 +54,33 @@ body {
   position: absolute;
   top: 1rem;
   left: 50%;
+}
+
+.moon-icon:hover {
+  color: #6741d9;
+}
+
+.sun-icon:hover {
+  color: #ffd43b;
+}
+
+.dark-transition {
+  background-color: #212529;
+  border-radius: 100px;
+  content: ".";
+  width: 2rem;
+  height: 2rem;
+  transform: translate(-50%, 0);
+  opacity: 0;
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  z-index: -1;
+}
+
+.dark-transition.show-transition {
+  opacity: 100;
+  transform: translate(-50%, 0) scale(100);
 }
 
 /* Todo Main */
@@ -53,7 +99,7 @@ body {
 }
 
 .todo-overlay {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: var(--main-color);
   display: none;
   width: 100%;
   height: 100%;
@@ -66,7 +112,7 @@ body {
 }
 
 .todo-overlay.show-overlay {
-  opacity: 100;
+  opacity: 30%;
   z-index: 3;
 }
 
@@ -76,6 +122,11 @@ body {
   display: flex;
   margin-bottom: 1rem;
   padding-bottom: 1rem;
+}
+
+.todo-title,
+.header-title {
+  color: var(--main-color);
 }
 
 .plus-icon-btn {
@@ -90,7 +141,7 @@ body {
 /* Todo form */
 
 .form-container {
-  background-color: white;
+  background-color: var(--main-bg-color);
   border-radius: 14px;
   transform: translate(-50%, -50%) scale(0.7);
   opacity: 0;
@@ -123,17 +174,17 @@ body {
 
 .todo-input {
   background-color: transparent;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--main-color);
   border: none;
   font-family: "Rubik", sans-serif;
-  color: #333;
+  color: var(--main-color);
   font-size: 1.2rem;
   font-weight: 500;
   padding: 0.5rem 1rem;
 }
 
 .todo-input-underline {
-  background-color: #1971c2;
+  background-color: var(--accent-color);
   transform: translate(-50%, 0) scaleX(0);
   width: 100%;
   height: 3px;
@@ -158,7 +209,7 @@ body {
 
 .todo-add,
 .todo-cancel {
-  background-color: #1971c2;
+  background-color: var(--accent-color);
   font-size: 1rem;
   border-radius: 100px;
   color: white;
@@ -181,7 +232,7 @@ body {
 
 .todo-list {
   align-items: center;
-  color: #e03131;
+  color: var(--red-color);
   display: flex;
   list-style: none;
   opacity: 0;
@@ -200,14 +251,14 @@ body {
 /* The border that is being animated when list button is being clicked */
 
 .list-border {
-  background-color: #e03131;
+  background-color: var(--red-color);
   height: 100%;
   width: 3px;
   margin-right: 2rem;
 }
 
 .list-border.active {
-  background-color: #37b24d;
+  background-color: var(--green-color);
   transform: rotate(180deg);
 }
 
@@ -217,7 +268,7 @@ body {
   font-size: 1.2rem;
   font-weight: 500;
   font-family: "Rubik", sans-serif;
-  color: #333;
+  color: var(--main-color);
   text-transform: lowercase;
   position: relative;
 }
@@ -235,7 +286,7 @@ body {
 
 .todo-list-button::after {
   content: " ";
-  background-color: #e03131;
+  background-color: var(--red-color);
   height: 2px;
   width: 100%;
   transition: all 0.3s ease;
@@ -256,14 +307,14 @@ body {
 }
 
 .trash-icon:hover {
-  color: #e03131;
+  color: var(--red-color);
 }
 
 /* Adds animation in button hover */
 
 .todo-list-button.active-btn:hover {
-  color: #37b24d;
+  color: var(--green-color);
 }
 .todo-list-button:hover {
-  color: #e03131;
+  color: var(--red-color);
 }

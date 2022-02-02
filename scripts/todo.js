@@ -18,6 +18,8 @@ todoCancelBtn = document.querySelector(".todo-cancel");
 todoInputUnderline = document.querySelector(".todo-input-underline");
 darkLightBtn = document.querySelector(".dark-light-btn");
 darkLightIcon = document.querySelector(".dark-light-mode");
+darkModeTrans = document.querySelector(".dark-transition");
+
 let darkMode = false;
 let overlayShow = false;
 
@@ -157,12 +159,18 @@ const darkModeClicked = function () {
     darkMode = false;
 
     // Animates the icon
-    darkLightBtn.style.transform = "scale(0.5) rotate(360deg)";
+    darkLightBtn.style.transform = "translateX(-50%) scale(0.5) rotate(360deg)";
+
+    darkModeTrans.classList.toggle("show-transition");
+
+    document.body.classList.toggle("dark-mode-toggle");
 
     // Delays the second animation
     setTimeout(() => {
       darkLightIcon.name = "moon-outline";
-      darkLightBtn.style.transform = "scale(1) rotate(0)";
+      darkLightIcon.classList.add("moon-icon");
+      darkLightIcon.classList.remove("sun-icon");
+      darkLightBtn.style.transform = "translateX(-50%) scale(1) rotate(0)";
     }, 200);
   }
 
@@ -170,13 +178,19 @@ const darkModeClicked = function () {
   else {
     darkMode = true;
 
+    darkModeTrans.classList.toggle("show-transition");
+
+    document.body.classList.toggle("dark-mode-toggle");
+
     // Animates the icon
-    darkLightBtn.style.transform = "scale(0.5) rotate(180deg)";
+    darkLightBtn.style.transform = "translateX(-50%) scale(0.5) rotate(180deg)";
 
     // Delays the second animation
     setTimeout(() => {
       darkLightIcon.name = "sunny-outline";
-      darkLightBtn.style.transform = "scale(1) rotate(0)";
+      darkLightIcon.classList.remove("moon-icon");
+      darkLightIcon.classList.add("sun-icon");
+      darkLightBtn.style.transform = "translateX(-50%) scale(1) rotate(0)";
     }, 200);
   }
 };
