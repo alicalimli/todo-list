@@ -19,16 +19,29 @@ const formContainer = document.querySelector(".form-container");
 const overlay = document.querySelector(".todo-overlay");
 const plusIconBtn = document.querySelector(".plus-icon-btn");
 
+const listContainer = document.querySelector(".list-container");
+
 // For dark mode
 
 let darkMode = false;
 let overlayShow = false;
+
+let taskCount = 0;
 
 // List template
 
 function createList() {
   if (todoInput.value) {
     let currentValue = todoInput.value;
+
+    // Counts how many task are being added by the user
+    taskCount++;
+
+    // Adds scroll bar when task is equals to 10
+
+    taskCount >= 10
+      ? (listContainer.style.overflowY = "scroll")
+      : console.log("under 10");
 
     // Creates a list element
 

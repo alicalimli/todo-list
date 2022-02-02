@@ -225,6 +225,10 @@ body {
 
 /* Users Todo list */
 
+.list-container {
+  height: 25rem;
+}
+
 .todo-lists {
   display: flex;
   flex-direction: column;
