@@ -37,6 +37,7 @@ body {
   --accent-color: #1971c2;
   --green-color: #37b24d;
   --red-color: #e03131;
+  --border-line-color: #ced4da;
 }
 
 .dark-mode-toggle {
@@ -45,6 +46,7 @@ body {
   --accent-color: #339af0;
   --green-color: #51cf66;
   --red-color: #fa5252;
+  --border-line-color: #495057;
 }
 
 /* Dark Mode Button */
@@ -86,7 +88,7 @@ body {
 /* Todo Main */
 
 .todo-main {
-  margin-top: 5rem;
+  margin-top: 3rem;
 }
 
 .todo-container {
@@ -323,4 +325,20 @@ body {
 
 .trash-icon:hover {
   color: var(--red-color);
+}
+
+/* Footer section */
+
+.footer-section {
+  padding: 1rem 2rem;
+  border-top: 1px solid var(--border-line-color);
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  font-family: sans-serif;
+  line-height: 1.6;
+  text-align: center;
+  color: #868e96;
+  font-weight: 400;
 }
