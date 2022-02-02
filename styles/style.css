@@ -130,6 +130,7 @@ body {
 }
 
 .plus-icon-btn {
+  color: var(--accent-color);
   margin-left: auto;
 }
 
