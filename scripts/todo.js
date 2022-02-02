@@ -26,6 +26,7 @@ const listContainer = document.querySelector(".list-container");
 let darkMode = false;
 let overlayShow = false;
 
+let formActive = false;
 let taskCount = 0;
 
 // List template
@@ -132,6 +133,8 @@ function createList() {
 // Toggles the pop up when user wants to add a todo list
 
 const togglePopUp = function () {
+  formActive = true;
+
   // Checks if the overlay is hidden
 
   if (!overlayShow) {
@@ -158,11 +161,13 @@ const togglePopUp = function () {
 
   // Needs to set timeout here because without it the focus function wouldnt work
 
-  setTimeout(() => {
-    // Puts the focus in the user input
-
-    todoInput.focus();
-  }, 100);
+  if (formActive) {
+    setTimeout(() => {
+      // Puts the focus in the user input
+      formActive = false;
+      todoInput.focus();
+    }, 100);
+  }
 
   // Resets the input value to none
 
